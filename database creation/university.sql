@@ -1,4 +1,4 @@
-CREATE SCHEMA university_database;
+#CREATE SCHEMA university_database;
 
 use universities_database;
 
@@ -39,11 +39,16 @@ gender_id int primary key auto_increment,
 gender varchar(100) not null
 );
 
+create table courses(
+course_id int primary key auto_increment,
+course_name varchar(5000)
+);
+
 create table indian_colleges(
 id int primary key auto_increment,
 college_name varchar(500) not null,
 campus_size double,
-genders_accepted varchar(5000),
+gender_id int,
 total_student_enrollments double,
 total_faculty_count double,
 established_year int, 
@@ -55,11 +60,13 @@ city_id int,
 state_id int,
 country_id int,
 college_type_id int,
+average_fees double,
 constraint university_id_fk foreign key (university_id) references indian_universities(university_id),
 constraint city_id_fk foreign key (city_id) references indian_cities(city_id),
 constraint state_id_fk foreign key (state_id) references indian_states(state_id),
 constraint country_id_fk foreign key (country_id) references country(country_id),
-constraint college_type_id_fk foreign key (college_type_id) references college_type(college_type_id)
+constraint college_type_id_fk foreign key (college_type_id) references college_type(college_type_id),
+constraint gender_id_fk foreign key (gender_id) references genders(gender_id)
 );
 
 create table user_details(
@@ -151,3 +158,4 @@ constraint status_us_id_fk foreign key (status_id) references university_status(
 constraint county_us_id_fk foreign key (county_id) references us_county(county_id),
 constraint country_us_id_fk foreign key (country_id) references country(country_id)
 );
+
