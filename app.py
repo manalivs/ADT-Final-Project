@@ -5,43 +5,12 @@ from python_scripts import data_view
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-
 # loading all the eda graphs
 overview = eda.get_db_overview()
 gender_pie_chart = eda.get_gender_pie_chart()
 facilities_count_plot, facilities_count_list = eda.facilities_count_plot() 
 top25_universities_college_count_plot, universities_count_list = eda.top25_universities_college_count_plot()
 top25_states_college_count_plot, top25_states_college_count_plot_list = eda.top25_states_college_count_plot()
-
-# overview = None
-# gender_pie_chart = None
-# facilities_count_plot, facilities_count_list = None, None
-# top25_universities_college_count_plot, universities_count_list = None, None
-# top25_states_college_count_plot, top25_states_college_count_plot_list = None, None
-
-# with open('pickles/eda/overview.pkl','rb') as f:
-#     overview = pickle.load(f)
-
-# with open('pickles/eda/gender_pie_chart.pkl','rb') as f:
-#     gender_pie_chart = pickle.load(f)
-
-# with open('pickles/eda/facilities_count_plot.pkl','rb') as f:
-#     facilities_count_plot = pickle.load(f)
-
-# with open('pickles/eda/facilities_count_list.pkl','rb') as f:
-#     facilities_count_list = pickle.load(f)
-
-# with open('pickles/eda/top25_universities_college_count_plot.pkl','rb') as f:
-#     top25_universities_college_count_plot = pickle.load(f)
-
-# with open('pickles/eda/universities_count_list.pkl','rb') as f:
-#     universities_count_list = pickle.load(f)
-
-# with open('pickles/eda/top25_states_college_count_plot.pkl','rb') as f:
-#     top25_states_college_count_plot = pickle.load(f)
-
-# with open('pickles/eda/top25_states_college_count_plot_list.pkl','rb') as f:
-#     top25_states_college_count_plot_list = pickle.load(f)
 
 # login page
 @app.route("/", methods=["GET", "POST"])
